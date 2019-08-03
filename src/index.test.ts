@@ -9,7 +9,7 @@ describe('set', () => {
     // Turn off the type system here, we want to test this behaviour so it is supported when being used in a JS only
     // context, but from a typescript perspective it is fine to be given a type error in this situation
     // tslint:disable-next-line:no-any
-    expect(set(input, [] as any, undefined)).toBe(input)
+    expect((set as any)(input, [], undefined)).toBe(input)
   })
 
   it('can immutably set a deeply nested property', () => {
@@ -38,18 +38,14 @@ describe('set', () => {
   it('can immutably update tuples', () => {
     const someTuple: [number, string, { key: number }, { otherKey: string }] =
       [1, 'two', {key: 3}, {otherKey: 'four'}]
-    // TODO this doesn't type check
-    // tslint:disable-next-line:no-any
-    const updatedTuple = set(someTuple, [2, 'key'] as any, 4)
+    const updatedTuple = set(someTuple, [2, 'key'], 4)
     expect(updatedTuple[2].key).toBe(4)
     expect(updatedTuple[3]).toEqual(someTuple[3])
   })
 
   it('can immutably update arrays', () => {
     const someArray: Array<{ key: string }> = [{key: 'zero'}, {key: 'one'}, {key: 'two'}]
-    // TODO this doesn't type check
-    // tslint:disable-next-line:no-any
-    const updatedArray = set(someArray, [1, 'key'] as any, 'updated-one')
+    const updatedArray = set(someArray, [1, 'key'], 'updated-one')
     expect(updatedArray[1].key).toBe('updated-one')
     expect(updatedArray[0]).toEqual(updatedArray[0])
   })
