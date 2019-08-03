@@ -3,13 +3,13 @@
 [![npm version](https://badge.fury.io/js/object-immutable-set.svg)](https://badge.fury.io/js/object-immutable-set)
 [![CircleCI](https://circleci.com/gh/GhystonSoftware/object-immutable-set.svg?style=shield)](https://circleci.com/gh/GhystonSoftware/object-immutable-set)
 
-Updated deeply nested objects in an immutable and type-safe way. Written and providing first class support for [Typescript](https://www.typescriptlang.org/)
+Updated deeply nested objects in an immutable and type-safe way. Written in and providing first class support for [Typescript](https://www.typescriptlang.org/).
 
 ## Usage
 
 `yarn add object-immutable-set` 
 
-or using npm 
+or using `npm` 
 
 `npm install object-immutable-set --save`
 
